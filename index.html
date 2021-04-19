@@ -1,4 +1,7 @@
 <html>
+  <head>
+    <script src="https://wzrd.in/standalone/copy-to-clipboard@latest" async></script>
+  </head>
   <body>
     <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
     <script>
@@ -21,6 +24,15 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js"
         fjs.parentNode.insertBefore(js, fjs)
       })(document, "script", "facebook-jssdk")
+
+      window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search)
+        const myParam = urlParams.get("code")
+        if (myParam) {
+          console.log(myParam)
+          window.copyToClipboard(myParam)
+        }
+      }
     </script>
   </body>
 </html>
